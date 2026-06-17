@@ -1,1 +1,216 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>পিএইচপি মতো গ্রিড লেআউট (HTML/CSS)</title>
+<style>
+  :root{
+    --bg: #1FA58A;         /* মূল background (আপনি চাইলে পাল্টাবেন) */
+    --card-bg: #cdeee6;    /* কার্ডের হালকা ব্যাকগ্রাউন্ড */
+    --accent: #173e52;     /* টেক্সট/লাইন কালার */
+    --shadow: rgba(0,0,0,0.12);
+  }
 
+  /* সাধারণ রিসেট */
+  *{box-sizing:border-box;margin:0;padding:0;font-family: "Noto Sans Bengali", Roboto, Arial, sans-serif}
+  body{background:var(--bg);padding:18px;color:var(--accent);-webkit-font-smoothing:antialiased}
+
+  /* অ্যাপ বার */
+  .appbar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+  }
+  .hamb{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+  .title{color:#fff;font-size:20px;font-weight:600}
+  .spacer{flex:1}
+
+  /* গ্রিড কন্টেইনার */
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr); /* মোবাইলে 2 কলাম */
+    gap:18px;
+    max-width:520px;
+    margin:0 auto;
+  }
+
+  /* কার্ড স্টাইল */
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+    border-radius:14px;
+    padding:14px;
+    min-height:120px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    box-shadow: 0 6px 18px var(--shadow);
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(0,0,0,0.06);
+    cursor:pointer;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .card:active{ transform: translateY(1px) scale(.999) }
+  .card:hover{ transform: translateY(-6px); box-shadow: 0 18px 36px rgba(0,0,0,0.18) }
+
+  /* আইকন বক্স */
+  .icon-wrap{
+    width:82px;
+    height:82px;
+    border-radius:10px;
+    background: #d0f0ee;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:10px;
+    border:3px solid rgba(0,0,0,0.05);
+  }
+  .icon-wrap img{
+    max-width:70%;
+    max-height:70%;
+    object-fit:contain;
+    display:block;
+  }
+
+  /* বটম লাইন এবং টেক্সট */
+  .divider{
+    width:78%;
+    height:4px;
+    background:var(--accent);
+    opacity:0.15;
+    border-radius:6px;
+    margin-top:6px;
+  }
+  .label{
+    font-size:16px;
+    font-weight:600;
+    color:var(--accent);
+    margin-top:6px;
+    text-align:center;
+  }
+
+  /* রেস্পন্সিভ: ডেস্কটপে 4 কলাম */
+  @media (min-width:900px){
+    .grid{ grid-template-columns: repeat(4, 1fr); max-width:1100px; gap:22px }
+    .card{ min-height:150px; padding:18px }
+    .icon-wrap{ width:86px; height:86px }
+  }
+
+  /* ছোট পর্দায় 1 কলাম */
+  @media (max-width:360px){
+    .grid{ grid-template-columns: repeat(2, 1fr); gap:12px }
+  }
+</style>
+</head>
+<body>
+  <div class="appbar">
+    <div class="hamb">≡</div>
+    <div class="title">পিআইও</div>
+    <div class="spacer"></div>
+    <!-- শেয়ার/প্রোফাইল আইকন স্টাব (ইচ্ছা করলে JS যোগ করবেন) -->
+    <div style="width:36px;height:36px;border-radius:18px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff">⚙</div>
+  </div>
+
+  <div class="grid">
+    <!-- প্রতিটি .card কপি করে নতুন আইটেম যোগ করতে পারবেন -->
+	
+	<a href="https://eracox.com/app-content/pia-app-content/html/pio_hq.html" style="text-decoration:none;">
+    <div class="card">
+      <div class="icon-wrap">
+        <!-- এখানে প্রতিটা কার্ডের জন্য আলাদা ছবি ব্যবহার করতে পারেন -->
+		<img src="https://eracox.com/app-content/pia-app-content/assets/phq.png"  alt="হেডকোয়ার্টার্স">
+      </div>
+      <div class="label">হেডকোয়ার্টার্স</div>
+      <div class="divider"></div>
+    </div> </a>
+
+
+	<a href="https://eracox.com/app-content/pia-app-content/html/pio_hq.html" style="text-decoration:none;">
+    <div class="card">
+      <div class="icon-wrap">
+        <img src="file:///mnt/data/WhatsApp%20Image%202025-11-23%20at%209.53.48%20AM.jpeg" alt="ডিএমপি">
+      </div>
+      <div class="label">ডিএমপি</div>
+      <div class="divider"></div>
+    </div> </a>
+
+
+	<a href="https://eracox.com/app-content/pia-app-content/html/pio_hq.html" style="text-decoration:none;">
+    <div class="card">
+      <div class="icon-wrap">
+        <img src="file:///mnt/data/WhatsApp%20Image%202025-11-23%20at%209.53.48%20AM.jpeg" alt="ঢাকা">
+      </div>
+      <div class="label">ঢাকা</div>
+      <div class="divider"></div>
+    </div></a>
+
+
+	<a href="https://eracox.com/app-content/pia-app-content/html/pio_hq.html" style="text-decoration:none;">
+    <div class="card">
+      <div class="icon-wrap">
+        <img src="file:///mnt/data/WhatsApp%20Image%202025-11-23%20at%209.53.48%20AM.jpeg" alt="চট্টগ্রাম">
+      </div>
+      <div class="label">চট্টগ্রাম</div>
+      <div class="divider"></div>
+    </div></a>
+	
+	
+	<a href="https://eracox.com/app-content/pia-app-content/html/pio_hq.html" style="text-decoration:none;">
+    <div class="card">
+      <div class="icon-wrap">
+      <img src="file:///mnt/data/WhatsApp%20Image%202025-11-23%20at%209.53.48%20AM.jpeg" alt="চট্টগ্রাম">
+      </div>
+     <div class="label">চট্টগ্রাম</div>
+     <div class="divider"></div>
+    </div>
+    </a>
+
+
+
+	<a href="https://eracox.com/app-content/pia-app-content/html/pio_hq.html" style="text-decoration:none;">
+    <div class="card">
+      <div class="icon-wrap">
+        <img src="file:///mnt/data/WhatsApp%20Image%202025-11-23%20at%209.53.48%20AM.jpeg" alt="সিলেট">
+      </div>
+      <div class="label">সিলেট</div>
+      <div class="divider"></div>
+    </div></a>
+
+
+	<a href="https://eracox.com/app-content/pia-app-content/html/pio_hq.html" style="text-decoration:none;">
+    <div class="card">
+      <div class="icon-wrap">
+        <img src="file:///mnt/data/WhatsApp%20Image%202025-11-23%20at%209.53.48%20AM.jpeg" alt="ময়মনসিংহ">
+      </div>
+      <div class="label">ময়মনসিংহ</div>
+      <div class="divider"></div>
+    </div></a>
+
+
+	<a href="https://eracox.com/app-content/pia-app-content/html/pio_hq.html" style="text-decoration:none;">
+    <div class="card">
+      <div class="icon-wrap">
+        <img src="file:///mnt/data/WhatsApp%20Image%202025-11-23%20at%209.53.48%20AM.jpeg" alt="রংপুর">
+      </div>
+      <div class="label">রংপুর</div>
+      <div class="divider"></div>
+    </div></a>
+
+
+	<a href="https://eracox.com/app-content/pia-app-content/html/pio_hq.html" style="text-decoration:none;">
+    <div class="card">
+      <div class="icon-wrap">
+        <img src="file:///mnt/data/WhatsApp%20Image%202025-11-23%20at%209.53.48%20AM.jpeg" alt="রাজশাহী">
+      </div>
+      <div class="label">রাজশাহী</div>
+      <div class="divider"></div>
+    </div></a>
+	
+	
+  </div>
+
+</body>
+</html>
